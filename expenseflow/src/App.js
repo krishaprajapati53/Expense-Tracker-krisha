@@ -41,6 +41,8 @@ function App() {
     },
   ]);
   const [categoryFilter, setCategoryFilter] = useState('All');
+  const [typeFilter, setTypeFilter] = useState('All');
+  const [sortOrder, setSortOrder] = useState('newest');
 
   function handleAddTransaction(newTransaction) {
     setTransactions([...transactions, newTransaction]);
@@ -61,10 +63,21 @@ function App() {
 
   const currentBalance = totalIncome - totalExpenses;
 
-  const filteredTransactions =
-    categoryFilter === 'All'
-      ? transactions
-      : transactions.filter((transaction) => transaction.category === categoryFilter);
+  const filteredTransactions = transactions.filter((transaction) => {
+    const matchesCategory =
+      categoryFilter === 'All' || transaction.category === categoryFilter;
+    const matchesType = typeFilter === 'All' || transaction.type === typeFilter;
+
+    return matchesCategory && matchesType;
+  });
+
+  const sortedTransactions = [...filteredTransactions].sort((firstTransaction, secondTransaction) => {
+    if (sortOrder === 'newest') {
+      return new Date(secondTransaction.date) - new Date(firstTransaction.date);
+    }
+
+    return new Date(firstTransaction.date) - new Date(secondTransaction.date);
+  });
 
   return (
     <main className="app-shell">
@@ -78,9 +91,13 @@ function App() {
       <FilterBar
         categoryFilter={categoryFilter}
         onCategoryFilterChange={setCategoryFilter}
+        typeFilter={typeFilter}
+        onTypeFilterChange={setTypeFilter}
+        sortOrder={sortOrder}
+        onSortOrderChange={setSortOrder}
       />
       <TransactionList
-        transactions={filteredTransactions}
+        transactions={sortedTransactions}
         onDeleteTransaction={handleDeleteTransaction}
       />
     </main>
