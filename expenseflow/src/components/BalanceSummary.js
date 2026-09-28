@@ -1,8 +1,23 @@
-function BalanceSummary() {
+function BalanceSummary({ totalIncome, totalExpenses, currentBalance }) {
   return (
-    <section className="card" aria-labelledby="balance-heading">
+    <section className="balance-summary" aria-labelledby="balance-heading">
       <h2 id="balance-heading">Balance Summary</h2>
-      <p className="placeholder-copy">Your balance details will appear here.</p>
+      <div className="summary-cards">
+        <article className="summary-card income-summary">
+          <h3>Total Income</h3>
+          <p>Rs. {totalIncome.toLocaleString()}</p>
+        </article>
+
+        <article className="summary-card expense-summary">
+          <h3>Total Expenses</h3>
+          <p>Rs. {totalExpenses.toLocaleString()}</p>
+        </article>
+
+        <article className="summary-card balance-summary-card">
+          <h3>Current Balance</h3>
+          <p>Rs. {currentBalance.toLocaleString()}</p>
+        </article>
+      </div>
     </section>
   );
 }

@@ -44,10 +44,24 @@ function App() {
     setTransactions([...transactions, newTransaction]);
   }
 
+  const totalIncome = transactions
+    .filter((transaction) => transaction.type === 'income')
+    .reduce((total, transaction) => total + transaction.amount, 0);
+
+  const totalExpenses = transactions
+    .filter((transaction) => transaction.type === 'expense')
+    .reduce((total, transaction) => total + transaction.amount, 0);
+
+  const currentBalance = totalIncome - totalExpenses;
+
   return (
     <main className="app-shell">
       <Header />
-      <BalanceSummary />
+      <BalanceSummary
+        totalIncome={totalIncome}
+        totalExpenses={totalExpenses}
+        currentBalance={currentBalance}
+      />
       <TransactionForm onAddTransaction={handleAddTransaction} />
       <TransactionList transactions={transactions} />
     </main>

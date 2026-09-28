@@ -46,6 +46,56 @@ select {
   box-shadow: 0 8px 24px rgba(31, 43, 77, 0.06);
 }
 
+.balance-summary {
+  margin-bottom: 18px;
+}
+
+.balance-summary > h2 {
+  margin-top: 0;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.summary-card {
+  padding: 18px;
+  border: 1px solid #e3e7ef;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(31, 43, 77, 0.06);
+}
+
+.summary-card h3,
+.summary-card p {
+  margin: 0;
+}
+
+.summary-card h3 {
+  color: #667085;
+  font-size: 0.875rem;
+}
+
+.summary-card p {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.income-summary p {
+  color: #116b42;
+}
+
+.expense-summary p {
+  color: #a32c2c;
+}
+
+.balance-summary-card p {
+  color: #304ffe;
+}
+
 .card h2,
 .card h3 {
   margin-top: 0;
@@ -162,6 +212,10 @@ select {
 
   .card {
     padding: 20px;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
   }
 
   .transaction-item {
