@@ -98,6 +98,7 @@ function App() {
       />
       <TransactionList
         transactions={sortedTransactions}
+        totalTransactions={transactions.length}
         onDeleteTransaction={handleDeleteTransaction}
       />
     </main>

@@ -41,7 +41,7 @@ select {
   margin-bottom: 18px;
   padding: 24px;
   border: 1px solid #e3e7ef;
-  border-radius: 14px;
+  border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 8px 24px rgba(31, 43, 77, 0.06);
 }
@@ -63,7 +63,7 @@ select {
 .summary-card {
   padding: 18px;
   border: 1px solid #e3e7ef;
-  border-radius: 14px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 8px 24px rgba(31, 43, 77, 0.06);
 }
@@ -242,10 +242,29 @@ select {
   background: #fff0f0;
 }
 
-@media (max-width: 480px) {
+.empty-message {
+  padding: 18px;
+  border: 1px dashed #cfd5e2;
+  border-radius: 8px;
+  color: #667085;
+  text-align: center;
+}
+
+.empty-message p,
+.empty-message span {
+  display: block;
+}
+
+.empty-message p {
+  margin: 0 0 6px;
+  color: #20263a;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
   .app-shell {
     width: min(100% - 24px, 720px);
-    padding: 32px 0;
+    padding: 36px 0;
   }
 
   .card {
@@ -257,7 +276,13 @@ select {
   }
 
   .transaction-item {
+    flex-direction: column;
     align-items: flex-start;
+  }
+
+  .transaction-amount {
+    justify-items: start;
+    white-space: normal;
   }
 
   .filter-bar {
