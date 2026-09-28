@@ -146,6 +146,24 @@ select {
   font-size: 0.875rem;
 }
 
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.filter-bar label {
+  font-weight: bold;
+}
+
+.filter-bar select {
+  padding: 8px 10px;
+  border: 1px solid #cfd5e2;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .transaction-list {
   display: grid;
   gap: 12px;
@@ -235,5 +253,10 @@ select {
 
   .transaction-item {
     align-items: flex-start;
+  }
+
+  .filter-bar {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

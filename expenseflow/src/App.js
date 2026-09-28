@@ -3,6 +3,7 @@ import Header from './components/Header';
 import BalanceSummary from './components/BalanceSummary';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
+import FilterBar from './components/FilterBar';
 
 function App() {
   const [transactions, setTransactions] = useState([
@@ -39,6 +40,7 @@ function App() {
       date: '2026-09-23',
     },
   ]);
+  const [categoryFilter, setCategoryFilter] = useState('All');
 
   function handleAddTransaction(newTransaction) {
     setTransactions([...transactions, newTransaction]);
@@ -59,6 +61,11 @@ function App() {
 
   const currentBalance = totalIncome - totalExpenses;
 
+  const filteredTransactions =
+    categoryFilter === 'All'
+      ? transactions
+      : transactions.filter((transaction) => transaction.category === categoryFilter);
+
   return (
     <main className="app-shell">
       <Header />
@@ -68,8 +75,12 @@ function App() {
         currentBalance={currentBalance}
       />
       <TransactionForm onAddTransaction={handleAddTransaction} />
+      <FilterBar
+        categoryFilter={categoryFilter}
+        onCategoryFilterChange={setCategoryFilter}
+      />
       <TransactionList
-        transactions={transactions}
+        transactions={filteredTransactions}
         onDeleteTransaction={handleDeleteTransaction}
       />
     </main>
