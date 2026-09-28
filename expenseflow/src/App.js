@@ -44,6 +44,11 @@ function App() {
     setTransactions([...transactions, newTransaction]);
   }
 
+  function handleDeleteTransaction(id) {
+    const updatedTransactions = transactions.filter((transaction) => transaction.id !== id);
+    setTransactions(updatedTransactions);
+  }
+
   const totalIncome = transactions
     .filter((transaction) => transaction.type === 'income')
     .reduce((total, transaction) => total + transaction.amount, 0);
@@ -63,7 +68,10 @@ function App() {
         currentBalance={currentBalance}
       />
       <TransactionForm onAddTransaction={handleAddTransaction} />
-      <TransactionList transactions={transactions} />
+      <TransactionList
+        transactions={transactions}
+        onDeleteTransaction={handleDeleteTransaction}
+      />
     </main>
   );
 }

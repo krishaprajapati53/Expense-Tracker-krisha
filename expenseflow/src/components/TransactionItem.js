@@ -1,4 +1,4 @@
-function TransactionItem({ transaction }) {
+function TransactionItem({ transaction, onDelete }) {
   const formattedAmount = transaction.amount.toLocaleString();
   const transactionType = transaction.type === 'income' ? 'Income' : 'Expense';
 
@@ -12,6 +12,9 @@ function TransactionItem({ transaction }) {
       <div className="transaction-amount">
         <strong>Rs. {formattedAmount}</strong>
         <span className={transaction.type}>{transactionType}</span>
+        <button type="button" className="delete-button" onClick={() => onDelete(transaction.id)}>
+          Delete
+        </button>
       </div>
     </li>
   );

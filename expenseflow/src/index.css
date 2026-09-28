@@ -204,6 +204,21 @@ select {
   background: #ffe5e5;
 }
 
+.delete-button {
+  padding: 5px 8px;
+  border: 1px solid #f3b4b4;
+  border-radius: 6px;
+  background: #fff;
+  color: #b42318;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #fff0f0;
+}
+
 @media (max-width: 480px) {
   .app-shell {
     width: min(100% - 24px, 720px);
