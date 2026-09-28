@@ -1,11 +1,14 @@
-import FilterBar from './FilterBar';
+import TransactionItem from './TransactionItem';
 
-function TransactionList() {
+function TransactionList({ transactions }) {
   return (
     <section className="card" aria-labelledby="transactions-heading">
       <h2 id="transactions-heading">Transactions</h2>
-      <FilterBar />
-      <p className="placeholder-copy">Your transaction list will appear here.</p>
+      <ul className="transaction-list">
+        {transactions.map((transaction) => (
+          <TransactionItem key={transaction.id} transaction={transaction} />
+        ))}
+      </ul>
     </section>
   );
 }

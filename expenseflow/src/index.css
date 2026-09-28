@@ -56,6 +56,64 @@ select {
   color: #667085;
 }
 
+.transaction-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #e8ebf2;
+  border-radius: 10px;
+  background: #fafbfe;
+}
+
+.transaction-item h3,
+.transaction-item p {
+  margin: 0;
+}
+
+.transaction-item h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.transaction-item p {
+  color: #667085;
+  font-size: 0.875rem;
+}
+
+.transaction-amount {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.transaction-amount span {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.transaction-amount .income {
+  color: #116b42;
+  background: #ddf7e9;
+}
+
+.transaction-amount .expense {
+  color: #a32c2c;
+  background: #ffe5e5;
+}
+
 @media (max-width: 480px) {
   .app-shell {
     width: min(100% - 24px, 720px);
@@ -64,5 +122,9 @@ select {
 
   .card {
     padding: 20px;
+  }
+
+  .transaction-item {
+    align-items: flex-start;
   }
 }
