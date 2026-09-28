@@ -54,15 +54,15 @@ The app normally opens at `http://localhost:3000`.
 
 ### Expense Dashboard
 
-Add a real dashboard screenshot here.
+![Expense Dashboard](screenshots/expenses_dashboard.png)
 
 ### Add Transaction Form
 
-Add a real transaction-form screenshot here.
+![Add Transaction Form](screenshots/transaction_form.png)
 
 ### Mobile View
 
-Add a real mobile-view screenshot here.
+![Mobile View](screenshots/mobile_view.png)
 
 ## Known Limitations
 
