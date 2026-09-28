@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import BalanceSummary from './components/BalanceSummary';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import FilterBar from './components/FilterBar';
 
-function App() {
-  const [transactions, setTransactions] = useState([
+const sampleTransactions = [
     {
       id: 1,
       description: 'Freelance Payment',
@@ -39,10 +38,25 @@ function App() {
       category: 'Bills',
       date: '2026-09-23',
     },
-  ]);
+];
+
+function App() {
+  const [transactions, setTransactions] = useState(() => {
+    const savedTransactions = localStorage.getItem('expenseflow-transactions');
+
+    if (savedTransactions) {
+      return JSON.parse(savedTransactions);
+    }
+
+    return sampleTransactions;
+  });
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
   const [sortOrder, setSortOrder] = useState('newest');
+
+  useEffect(() => {
+    localStorage.setItem('expenseflow-transactions', JSON.stringify(transactions));
+  }, [transactions]);
 
   function handleAddTransaction(newTransaction) {
     setTransactions([...transactions, newTransaction]);
