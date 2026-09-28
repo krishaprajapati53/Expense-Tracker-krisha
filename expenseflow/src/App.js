@@ -5,7 +5,7 @@ import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 
 function App() {
-  const [transactions] = useState([
+  const [transactions, setTransactions] = useState([
     {
       id: 1,
       description: 'Freelance Payment',
@@ -40,11 +40,15 @@ function App() {
     },
   ]);
 
+  function handleAddTransaction(newTransaction) {
+    setTransactions([...transactions, newTransaction]);
+  }
+
   return (
     <main className="app-shell">
       <Header />
       <BalanceSummary />
-      <TransactionForm />
+      <TransactionForm onAddTransaction={handleAddTransaction} />
       <TransactionList transactions={transactions} />
     </main>
   );

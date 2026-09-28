@@ -56,6 +56,46 @@ select {
   color: #667085;
 }
 
+.transaction-form {
+  display: grid;
+  gap: 8px;
+}
+
+.transaction-form label {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfd5e2;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.transaction-form button {
+  margin-top: 12px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #304ffe;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.transaction-form button:hover {
+  background: #243ad8;
+}
+
+.form-error {
+  margin: 4px 0 0;
+  color: #b42318;
+  font-size: 0.875rem;
+}
+
 .transaction-list {
   display: grid;
   gap: 12px;
